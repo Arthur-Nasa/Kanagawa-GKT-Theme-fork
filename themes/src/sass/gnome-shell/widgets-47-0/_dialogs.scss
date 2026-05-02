@@ -15,7 +15,7 @@
 }
 
 %last_dialog_button {
-	background-color: $primary;
+	background-color: $patina-accent;
 	color: if($variant == 'dark', $black, $white);
 
 	&:hover {
@@ -29,8 +29,8 @@
 	}
 
 	&:insensitive {
-		background-color: rgba($primary, 0.05);
-		color: rgba($primary, 0.35);
+		background-color: rgba($patina-accent, 0.05);
+		color: rgba($patina-accent, 0.35);
 	}
 }
 
@@ -239,8 +239,8 @@
 				background-color: overlay($popover, hover);
 			}
 			&:active {
-				background-color: $primary;
-				color: on($primary);
+				background-color: $patina-accent;
+				color: on($patina-accent);
 			}
 
 			.audio-selection-device-box {

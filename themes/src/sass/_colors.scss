@@ -102,6 +102,7 @@
 		@if ($theme == 'green')   { @return $green-light; }
 		@if ($theme == 'teal')    { @return $teal-light; }
 		@if ($theme == 'grey')    { @return $grey-500; }
+		@if ($theme == 'brass')   { @return $brass-dark; }
 	} @else {
 		@if ($theme == 'default') { @return $default-dark; }
 		@if ($theme == 'purple')  { @return $purple-dark; }
@@ -112,6 +113,7 @@
 		@if ($theme == 'green')   { @return $green-dark; }
 		@if ($theme == 'teal')    { @return $teal-dark; }
 		@if ($theme == 'grey')    { @return $grey-200; }
+		@if ($theme == 'brass')   { @return $brass-light; } 
 	}
 }
 
@@ -146,11 +148,13 @@
 
 // Basic colors
 $primary:                               theme(color);
-$drop_target_color:                     $orange-dark;
-$indicator:                             if($variant == 'dark', mix($primary, background(b), 0%), mix($primary, background(f), 0%));
-$titlebar-indicator:                    if($variant == 'dark', currentColor, $primary);
-$inverse-indicator:                     mix($primary, $white, 0%);
-$applet-primary:                        if($theme == 'grey' and variant == 'light' and $topbar == 'dark', $grey-200, $primary);
+$patina-accent:                         if($theme == 'brass', if($variant == 'light', $patina-dark, $patina-light), $primary);
+
+$drop_target_color:                     if($theme == 'brass', if($variant == 'light', $patina-dark, $patina-light), $orange-dark);
+$indicator:                             if($theme == 'brass', if($variant == 'light', $patina-dark, $patina-light), if($variant == 'dark', mix($primary, background(b), 0%), mix($primary, background(f), 0%)));
+$titlebar-indicator:                    if($theme == 'brass', if($variant == 'light', $patina-dark, $patina-light), if($variant == 'dark', currentColor, $primary));
+$inverse-indicator:                     mix($patina-accent, $white, 0%);
+$applet-primary:                        if($theme == 'grey' and variant == 'light' and $topbar == 'dark', $grey-200, $patina-accent);
 
 $background:                            if($variant == 'light', background(a), background(f));
 $surface:                               if($variant == 'light', background(b), background(g));
@@ -160,7 +164,7 @@ $card:                                  if($variant == 'light', background(b), b
 $menu:                                  if($variant == 'light', $grey-150, $grey-850);
 
 $tooltip:                               if($variant == 'dark', rgba(darken(background(f), 3%), 0.9), rgba(darken(background(h), 3%), 0.9));
-$osd:                                   mix($primary, background(f), 0%);
+$osd:                                   mix($patina-accent, background(f), 0%);
 $scrim:                                 mix($primary, background(g), 0%);
 $scrim-alt:                             mix($primary, background(h), 0%);
 $scrim-inverse:                         rgba($white, 0.1);
@@ -177,17 +181,17 @@ $entry:                                 if($variant == 'dark', on($background, s
 // Misc colors
 $chromium-tabs:                         if($variant == 'light', $grey-150, $grey-600);
 
-$link:                                  mix($blue-dark, $teal-dark, 50%);
+$link: if($theme == 'brass', if($variant == 'light', $patina-dark, $patina-light), mix($blue-dark, $teal-dark, 50%));
 $link-visited:                          if($variant == 'light', $purple-dark, $purple-light);
 
 $warning:                               if($variant == 'light', $yellow-dark, $yellow-light);
 $error:                                 if($variant == 'light', $red-dark, $red-light);
-$success:                               if($variant == 'light', $green-dark, $green-light);
+$success:				if($theme == 'brass', if($variant == 'light', $patina-dark, $patina-light), if($variant == 'light', $green-dark, $green-light));
 
-$suggested:                             if($variant == 'light', $blue-dark, $blue-light);
+$suggested: if($theme == 'brass', if($variant == 'light', $patina-dark, $patina-light), if($variant == 'light', $blue-dark, $blue-light));
 $destructive:                           $error;
 
-$assets-color:                          $primary;
+$assets-color:                          $patina-accent;
 
 $frame:                                 if($variant == 'light', rgba($black, 0.12), rgba($black, 0.20));
 $border:                                if($variant == 'light', rgba($black, 0.12), rgba($white, 0.12));
@@ -238,7 +242,7 @@ $titlebutton-close:                      $button-close;
 $titlebutton-max:                        $button-max;
 $titlebutton-min:                        $button-min;
 
-$accent-color:                          if($variant == 'light', $default-light, $default-dark);
+$accent-color:                          if($theme == 'brass', if($variant == 'light', $patina-dark, $patina-light), if($variant == 'light', $default-light, $default-dark));
 
 // workaround for GTK3 @placeholder_text_color which doesn't allow translucent colors
 $placeholder_text_color:                if($variant == 'light', mix($black, $base, percentage(0.6)), mix($white, $base, percentage(0.7)));

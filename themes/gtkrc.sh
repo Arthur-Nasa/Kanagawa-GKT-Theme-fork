@@ -42,6 +42,9 @@ make_gtkrc() {
             -Yellow)
                 theme_color='#de9800'
                 ;;
+	   -Brass)
+                theme_color='#a37233'
+                ;;
         esac
 
         if [[ "$ctype" == '-Dragon' ]]; then
@@ -103,6 +106,9 @@ make_gtkrc() {
                 ;;
             -Yellow)
                 theme_color='#dca561'
+                ;;
+	-Brass)
+                theme_color='#cc934e'
                 ;;
         esac
 

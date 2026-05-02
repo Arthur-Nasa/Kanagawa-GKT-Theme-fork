@@ -118,7 +118,7 @@
 
 		&:hover,
 		&:focus {
-			color: rgba($primary, 0.5);
+			color: rgba($patina-accent, 0.5);
 			background-color: lighten($background, 5%);
 		}
 
@@ -213,8 +213,8 @@
 			}
 			&:active,
 			&:active:hover {
-				background-color: $primary;
-				color: on($primary);
+				background-color: $patina-accent;
+				color: on($patina-accent);
 			}
 			&:insensitive {
 				background-color: $fill;

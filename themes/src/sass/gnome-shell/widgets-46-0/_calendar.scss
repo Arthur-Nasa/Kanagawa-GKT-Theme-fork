@@ -229,11 +229,11 @@
 
 		&:active {
 			background-color: darken($primary, 5%);
-			color: on($primary) !important;
+			color: on($patina-accent) !important;
 		}
 
 		&:selected {
-			background-color: $primary;
+			background-color: $patina-accent;
 			color: if($variant == 'light', $white, $black) !important;
 
 			&:hover,

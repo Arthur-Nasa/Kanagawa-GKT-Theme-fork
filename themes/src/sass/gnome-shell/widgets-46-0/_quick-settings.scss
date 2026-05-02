@@ -42,7 +42,7 @@
 	}
 
 	&:checked {
-		background-color: rgba($primary, 0.95) !important;
+		background-color: rgba($patina-accent, 0.95) !important;
 		color: if($variant == 'light', $white, $black);
 
 		&:hover {
@@ -131,7 +131,7 @@
 		}
 
 		&:checked {
-			background-color: rgba($primary, 0.75) !important;
+			background-color: rgba($patina-accent, 0.75) !important;
 			color: if($variant == 'light', $white, $black);
 
 			&:hover {
@@ -227,8 +227,8 @@
 			background-color: on($popover, divider) !important;
 
 			&.active {
-				background-color: $primary !important;
-				color: on($primary);
+				background-color: $patina-accent !important;
+				color: on($patina-accent);
 			}
 		}
 
